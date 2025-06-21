@@ -1,43 +1,89 @@
 # OpenManus Go
 
-OpenManus Go 是 OpenManus 的 Go 语言重写版本，支持多智能体、工具调用、流程控制和安全沙箱等功能。
+[中文文档](README_zh.md) | English
 
-## 安装指南
+OpenManus Go is a Go language rewrite of OpenManus, supporting multi-agent systems, tool calling, flow control, and secure sandboxing.
 
-### 前置条件
-- Go 1.21 或更高版本
-- 配置 OpenAI API 密钥
+## Installation Guide
 
-### 安装步骤
-1. 克隆仓库：
+### Prerequisites
+- Go 1.21 or higher
+- OpenAI API key configuration
+
+### Installation Steps
+1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/openmanus-go.git
+   git clone https://github.com/HildaM/openmanus-go.git
    cd openmanus-go
    ```
 
-2. 安装依赖：
+2. Install dependencies:
    ```bash
    go mod tidy
    ```
 
-3. 配置 API 密钥：
-   编辑 `config/config.toml`，替换 `api_key` 为你的 OpenAI API 密钥。
+3. Configure API key:
+   Edit `config/config.toml` and replace `api_key` with your OpenAI API key.
 
-## 使用示例
+## Usage Examples
 
-运行主程序：
+Run the main program:
 ```bash
 go run cmd/main.go
 ```
 
-## 项目结构
-- `cmd/`: 命令行入口
-- `internal/`: 内部包（智能体、工具、流程、沙箱等）
-- `pkg/`: 公共包（日志、工具函数等）
-- `config/`: 配置文件
+Run task flow:
+```bash
+go run cmd/flow/main.go
+```
 
-## 贡献指南
-欢迎提交 Issue 或 Pull Request！
+Run MCP service:
+```bash
+go run cmd/mcp/main.go
+```
 
-## 许可证
+## Project Structure
+- `cmd/`: Command line entry points
+  - `main.go`: Main program entry
+  - `flow/`: Task flow entry
+  - `mcp/`: MCP service entry
+- `internal/`: Internal packages
+  - `agent/`: Agent implementations (ReAct, SWE, Browser, DataAnalysis, etc.)
+  - `tool/`: Tool collection (file operations, Shell, Python execution, etc.)
+  - `flow/`: Flow control
+  - `llm/`: LLM client
+  - `mcp/`: MCP protocol implementation
+  - `sandbox/`: Secure sandbox
+  - `prompt/`: Prompt management
+  - `config/`: Configuration management
+- `pkg/`: Public packages
+  - `logger/`: Logging utilities
+- `config/`: Configuration files
+
+## Features
+
+### Multi-Agent System
+- **ReAct Agent**: Reasoning-Acting loop agent
+- **SWE Agent**: Software engineering agent
+- **Browser Agent**: Browser automation agent
+- **Data Analysis Agent**: Data analysis agent
+- **MCP Agent**: MCP protocol agent
+- **Manus Agent**: Core agent
+
+### Tool System
+- File operation tools
+- Shell command execution
+- Python code execution
+- Web API calls
+- Data analysis tools
+
+### Security Features
+- Sandbox environment execution
+- Permission control
+- Secure code execution
+
+## Contributing
+Welcome to submit Issues or Pull Requests!
+
+## License
 MIT
