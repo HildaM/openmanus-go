@@ -1,0 +1,42 @@
+# OpenManus 配置文件
+
+# 服务配置
+[server]
+port = 8080
+host = "localhost"
+timeout = 30
+
+# 日志配置
+[log]
+level = "info"
+format = "text"
+output_path = "logs"
+
+# MCP 配置
+[mcp]
+enabled = true
+service_url = "http://localhost:8081"
+max_retries = 3
+retry_delay = 5
+
+# 工具配置
+[tools]
+[tools.python_service]
+url = "http://localhost:5000"
+timeout = 30
+
+# 智能体配置
+[agents]
+max_concurrent = 5
+timeout = 300
+
+# LLM 配置
+[llm]
+# 可选值: openai, deepseek
+provider = "deepseek"
+# DeepSeek 模型: deepseek-chat, deepseek-coder
+model = "deepseek-chat"
+base_url = "https://api.deepseek.com/v1"
+api_key = "sk-b0eb60b02ba34dd894d707e8f924429e"
+max_tokens = 4096
+temperature = 0.0
